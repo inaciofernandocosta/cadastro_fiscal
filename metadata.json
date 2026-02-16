@@ -1,0 +1,8 @@
+{
+  "name": "Hub B2B - Fiscal Intelligence Platform",
+  "description": "A comprehensive platform for B2B product registration, fiscal validation, and AI-powered tax consulting. Featuring mass import tools, GS1 validation, and a specialized Fiscal Mentor chat.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
