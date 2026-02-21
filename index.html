@@ -5,52 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hub B2B - Fiscal Intelligence</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        primary: "#164E63", 
-                        secondary: "#94C4D8", 
-                        danger: "#DC2626", 
-                        chatPrimary: "#2C8CBA",
-                        "background-light": "#F3F6F9",
-                        "background-dark": "#0F172A",
-                        "card-light": "#FFFFFF",
-                        "card-dark": "#1E293B",
-                        "input-light": "#F8FAFC",
-                        "input-dark": "#334155",
-                        "border-light": "#E2E8F0",
-                        "border-dark": "#475569",
-                        "text-light": "#334155",
-                        "text-dark": "#E2E8F0",
-                        "label-light": "#64748B",
-                        "label-dark": "#94A3B8",
-                        "gs1-orange": "#F26334",
-                        "gs1-blue": "#002C6C"
-                    },
-                    fontFamily: {
-                        display: ["Inter", "sans-serif"],
-                    },
-                    borderRadius: {
-                        "3xl": "2rem",
-                    },
-                },
-            },
-        };
-    </script>
-    <style>
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
-        .dark ::-webkit-scrollbar-thumb { background: #475569; }
-        body { font-family: 'Inter', sans-serif; }
-    </style>
 <script type="importmap">
 {
   "imports": {
@@ -64,5 +21,6 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark">
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>

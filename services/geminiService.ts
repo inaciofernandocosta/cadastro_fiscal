@@ -20,13 +20,26 @@ Current date: ${new Date().toLocaleDateString()}.
 `;
 
 export class GeminiService {
-  private ai: GoogleGenAI;
+  private ai: GoogleGenAI | null = null;
+  private apiKey: string;
 
   constructor() {
-    this.ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+    this.apiKey = process.env.API_KEY || '';
+    
+    if (this.apiKey && this.apiKey !== 'YOUR_API_KEY_HERE') {
+      try {
+        this.ai = new GoogleGenAI({ apiKey: this.apiKey });
+      } catch (error) {
+        console.warn('Gemini API initialization failed:', error);
+      }
+    }
   }
 
   async sendMessage(message: string, history: { role: 'user' | 'model', parts: { text: string }[] }[]) {
+    if (!this.ai) {
+      return "⚠️ API Key do Gemini não configurada. Por favor, adicione sua chave no arquivo .env (GEMINI_API_KEY). Obtenha em: https://aistudio.google.com/app/apikey";
+    }
+
     try {
       const response = await this.ai.models.generateContent({
         model: 'gemini-3-flash-preview',

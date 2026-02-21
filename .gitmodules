@@ -1,0 +1,3 @@
+[submodule "aios-core"]
+	path = aios-core
+	url = https://github.com/inaciofernandocosta/aios-core.git
