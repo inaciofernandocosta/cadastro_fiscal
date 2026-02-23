@@ -1,277 +1,212 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   Users, 
+  TrendingUp, 
   Crown, 
-  Briefcase, 
-  Search, 
-  ChevronDown, 
-  Mail, 
-  MessageCircle, 
-  Eye, 
-  Trash2,
-  MoreVertical
+  DollarSign,
+  ChevronRight,
+  Shield,
+  Settings,
+  BarChart3,
+  Mail
 } from 'lucide-react';
+type AdminPage = 'dashboard' | 'users' | 'analytics' | 'logs' | 'feedback' | 'ai' | 'config';
 
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  plan: 'BETA' | 'PREMIUM' | 'BUSINESS';
-  registeredAt: string;
-  lastAccess: string;
-  sessions: number;
-  status: 'Online' | 'Offline';
-  avatar?: string;
+interface AdminDashboardProps {
+  onNavigate?: (page: AdminPage) => void;
 }
 
-const mockUsers: User[] = [
-  {
-    id: '3f1a06b8-b628-4bfe-ab79-3a8f1ca3e923',
-    name: 'Renan Villas Boas',
-    email: '-',
-    plan: 'BETA',
-    registeredAt: '18/02/2026',
-    lastAccess: 'Nunca',
-    sessions: 0,
-    status: 'Offline'
-  },
-  {
-    id: '8740b8bd-eaa0-4f72-9f71-918e6aacb4af',
-    name: 'FERNANDO I COSTA',
-    email: '-',
-    plan: 'BETA',
-    registeredAt: '22/02/2026',
-    lastAccess: 'Nunca',
-    sessions: 0,
-    status: 'Offline'
-  },
-  {
-    id: '27b360f3-9b98-480b-a1b2-3c4d5e6f7g8h',
-    name: 'Fernando Inacio',
-    email: 'admin@hubb2b.com',
-    plan: 'BUSINESS',
-    registeredAt: '19/02/2026',
-    lastAccess: 'Agora',
-    sessions: 34,
-    status: 'Online',
-    avatar: 'https://picsum.photos/seed/admin/44/44'
-  }
-];
-
-const AdminDashboard: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedPlan, setSelectedPlan] = useState('Todos os planos');
-  const [isInviteExpanded, setIsInviteExpanded] = useState(false);
-  const [isWhatsappExpanded, setIsWhatsappExpanded] = useState(false);
-
-  const stats = {
-    total: mockUsers.length,
-    premium: mockUsers.filter(u => u.plan === 'PREMIUM').length,
-    business: mockUsers.filter(u => u.plan === 'BUSINESS').length
-  };
-
+const AdminDashboard: React.FC<AdminDashboardProps> = ({ onNavigate }) => {
   return (
     <div className="max-w-[1600px] mx-auto space-y-6 pb-20">
       <header className="mb-8">
-        <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-2">Gestão de Usuários</h1>
-        <p className="text-label-light dark:text-label-dark text-lg">Visualize e gerencie todos os usuários do sistema</p>
+        <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-2">Dashboard</h1>
+        <p className="text-label-light dark:text-label-dark text-lg">Visão geral do sistema e métricas principais</p>
       </header>
 
-      {/* Invite Campaigns */}
-      <div className="space-y-4">
-        <div className="bg-card-light dark:bg-card-dark rounded-xl border border-border-light dark:border-border-dark overflow-hidden transition-all duration-300">
-          <button 
-            onClick={() => setIsInviteExpanded(!isInviteExpanded)}
-            className="w-full flex items-center justify-between p-5 text-left"
-          >
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                <Mail className="w-5 h-5 text-primary" />
-                Campanha de Convite
-              </h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                Cole uma lista de emails para enviar o e-mail comercial com preview do app.
-              </p>
-            </div>
-            <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${isInviteExpanded ? 'rotate-180' : ''}`} />
-          </button>
-          {isInviteExpanded && (
-            <div className="px-5 pb-5 border-t border-border-light dark:border-border-dark pt-4 animate-fade-in-up">
-              <textarea 
-                className="w-full h-32 bg-input-light dark:bg-input-dark border border-border-light dark:border-border-dark rounded-lg p-3 text-sm focus:ring-2 focus:ring-primary outline-none resize-none"
-                placeholder="email1@exemplo.com, email2@exemplo.com..."
-              />
-              <div className="mt-3 flex justify-end">
-                <button className="px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-lg text-sm font-medium transition-colors">
-                  Enviar Convites
-                </button>
-              </div>
-            </div>
-          )}
+      {/* Admin Banner */}
+      <div className="bg-gradient-to-r from-primary via-primary-dark to-primary rounded-2xl p-6 text-white">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
+            <Shield className="w-5 h-5" />
+          </div>
+          <div>
+            <h2 className="text-lg font-bold">Administrador Master</h2>
+            <p className="text-white/70 text-sm">Acesso total ao sistema</p>
+          </div>
         </div>
-
-        <div className="bg-card-light dark:bg-card-dark rounded-xl border border-border-light dark:border-border-dark overflow-hidden transition-all duration-300">
-          <button 
-            onClick={() => setIsWhatsappExpanded(!isWhatsappExpanded)}
-            className="w-full flex items-center justify-between p-5 text-left"
-          >
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                <MessageCircle className="w-5 h-5 text-green-500" />
-                Convidar via WhatsApp
-              </h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                Envie um link de convite para qualquer número — sem precisar ter o contato salvo.
-              </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div className="flex items-center gap-2 mb-1">
+              <Users className="w-4 h-4 text-white/70" />
+              <span className="text-sm text-white/70">Nome</span>
             </div>
-            <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${isWhatsappExpanded ? 'rotate-180' : ''}`} />
-          </button>
-          {isWhatsappExpanded && (
-            <div className="px-5 pb-5 border-t border-border-light dark:border-border-dark pt-4 animate-fade-in-up">
-              <div className="flex gap-3">
-                <input 
-                  type="text"
-                  className="flex-1 bg-input-light dark:bg-input-dark border border-border-light dark:border-border-dark rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-primary outline-none"
-                  placeholder="+55 (11) 99999-9999"
-                />
-                <button className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg text-sm font-medium transition-colors">
-                  Gerar Link
-                </button>
-              </div>
+            <p className="font-semibold">Fernando Inacio da Costa</p>
+          </div>
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div className="flex items-center gap-2 mb-1">
+              <Mail className="w-4 h-4 text-white/70" />
+              <span className="text-sm text-white/70">E-mail</span>
             </div>
-          )}
-        </div>
-      </div>
-
-      {/* Filters & Search */}
-      <div className="flex flex-col sm:flex-row gap-4">
-        <div className="flex-1 relative">
-          <Search className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-          <input 
-            type="text"
-            placeholder="Buscar por email ou nome..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-xl text-sm focus:ring-2 focus:ring-primary outline-none"
-          />
-        </div>
-        <div className="w-full sm:w-48 relative">
-          <select 
-            value={selectedPlan}
-            onChange={(e) => setSelectedPlan(e.target.value)}
-            className="w-full px-4 py-2.5 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-xl text-sm appearance-none focus:ring-2 focus:ring-primary outline-none"
-          >
-            <option>Todos os planos</option>
-            <option>BETA</option>
-            <option>PREMIUM</option>
-            <option>BUSINESS</option>
-          </select>
-          <ChevronDown className="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+            <p className="font-semibold">inacio.fernando@gmail.com</p>
+          </div>
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div className="flex items-center gap-2 mb-1">
+              <Shield className="w-4 h-4 text-white/70" />
+              <span className="text-sm text-white/70">Membro desde</span>
+            </div>
+            <p className="font-semibold">dez. de 2025</p>
+          </div>
         </div>
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-primary/10 dark:bg-primary/20 border border-primary/20 rounded-xl p-5">
-          <p className="text-sm font-medium text-primary dark:text-secondary mb-1">Total de Usuários</p>
-          <p className="text-3xl font-bold text-primary dark:text-white">{stats.total}</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-xl p-5">
+          <div className="flex items-center justify-between mb-4">
+            <div className="w-10 h-10 rounded-xl bg-blue-500 flex items-center justify-center">
+              <Users className="w-5 h-5 text-white" />
+            </div>
+            <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded-full flex items-center gap-1">
+              <TrendingUp className="w-3 h-3" /> +360.0%
+            </span>
+          </div>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Total de Usuários</p>
+          <p className="text-3xl font-bold text-gray-900 dark:text-white">11</p>
+          <p className="text-xs text-gray-400 mt-1">+8 este mês</p>
         </div>
-        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800/50 rounded-xl p-5">
-          <p className="text-sm font-medium text-blue-600 dark:text-blue-400 mb-1">Usuários Premium</p>
-          <p className="text-3xl font-bold text-blue-900 dark:text-blue-100">{stats.premium}</p>
+
+        <div className="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-xl p-5">
+          <div className="flex items-center justify-between mb-4">
+            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+              <TrendingUp className="w-5 h-5 text-white" />
+            </div>
+            <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded-full flex items-center gap-1">
+              <TrendingUp className="w-3 h-3" /> +8.2%
+            </span>
+          </div>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Usuários Premium</p>
+          <p className="text-3xl font-bold text-gray-900 dark:text-white">0</p>
+          <p className="text-xs text-gray-400 mt-1">Plano mensal</p>
         </div>
-        <div className="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800/50 rounded-xl p-5">
-          <p className="text-sm font-medium text-purple-600 dark:text-purple-400 mb-1">Usuários Business</p>
-          <p className="text-3xl font-bold text-purple-900 dark:text-purple-100">{stats.business}</p>
+
+        <div className="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-xl p-5">
+          <div className="flex items-center justify-between mb-4">
+            <div className="w-10 h-10 rounded-xl bg-orange-500 flex items-center justify-center">
+              <Crown className="w-5 h-5 text-white" />
+            </div>
+            <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded-full flex items-center gap-1">
+              <TrendingUp className="w-3 h-3" /> +15.1%
+            </span>
+          </div>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Usuários Business</p>
+          <p className="text-3xl font-bold text-gray-900 dark:text-white">0</p>
+          <p className="text-xs text-gray-400 mt-1">Plano empresarial</p>
+        </div>
+
+        <div className="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-xl p-5">
+          <div className="flex items-center justify-between mb-4">
+            <div className="w-10 h-10 rounded-xl bg-yellow-500 flex items-center justify-center">
+              <DollarSign className="w-5 h-5 text-white" />
+            </div>
+            <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded-full flex items-center gap-1">
+              <TrendingUp className="w-3 h-3" /> +12.5%
+            </span>
+          </div>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Receita Mensal (MRR)</p>
+          <p className="text-3xl font-bold text-gray-900 dark:text-white">R$ 0.00</p>
+          <p className="text-xs text-gray-400 mt-1">Receita recorrente</p>
         </div>
       </div>
 
-      {/* Users Table */}
-      <div className="bg-card-light dark:bg-card-dark rounded-xl border border-border-light dark:border-border-dark overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="bg-gray-50 dark:bg-gray-800/50 border-b border-border-light dark:border-border-dark text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                <th className="px-6 py-4">Usuário</th>
-                <th className="px-6 py-4">Email</th>
-                <th className="px-6 py-4">ID</th>
-                <th className="px-6 py-4">Plano</th>
-                <th className="px-6 py-4">Cadastro</th>
-                <th className="px-6 py-4">Último Acesso</th>
-                <th className="px-6 py-4">Sessões (30d)</th>
-                <th className="px-6 py-4">Status</th>
-                <th className="px-6 py-4 text-center">Ações</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border-light dark:divide-border-dark">
-              {mockUsers.map((user) => (
-                <tr key={user.id} className="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="flex items-center gap-3">
-                      {user.avatar ? (
-                        <img src={user.avatar} alt={user.name} className="w-8 h-8 rounded-full" />
-                      ) : (
-                        <div className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-                          <Users className="w-4 h-4 text-gray-500" />
-                        </div>
-                      )}
-                      <div>
-                        <div className="font-medium text-gray-900 dark:text-white flex items-center gap-2">
-                          {user.name}
-                          {user.plan === 'BETA' && (
-                            <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-primary/10 text-primary">BETA</span>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-300">
-                    {user.email}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-xs text-gray-500 font-mono">
-                    <div className="max-w-[120px] truncate" title={user.id}>{user.id}</div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`px-2.5 py-1 rounded-full text-xs font-medium ${
-                      user.plan === 'BUSINESS' ? 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400' :
-                      user.plan === 'PREMIUM' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400' :
-                      'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300'
-                    }`}>
-                      {user.plan}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-300">
-                    {user.registeredAt}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-300">
-                    {user.lastAccess}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-300">
-                    {user.sessions}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="flex items-center gap-1.5">
-                      <span className={`w-2 h-2 rounded-full ${user.status === 'Online' ? 'bg-primary' : 'bg-gray-400'}`} />
-                      <span className="text-sm text-gray-600 dark:text-gray-300">{user.status}</span>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-center">
-                    <div className="flex items-center justify-center gap-3">
-                      <button className="text-blue-500 hover:text-blue-700 transition-colors" title="Visualizar Detalhes">
-                        <Eye className="w-4 h-4" />
-                      </button>
-                      <button className="text-orange-500 hover:text-orange-700 transition-colors" title="Enviar Email">
-                        <Mail className="w-4 h-4" />
-                      </button>
-                      <button className="text-red-500 hover:text-red-700 transition-colors" title="Excluir Usuário">
-                        <Trash2 className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      {/* Distribution & Quick Actions */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Plan Distribution */}
+        <div className="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-xl p-6">
+          <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-6">Distribuição de Planos</h3>
+          <div className="space-y-5">
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Free</span>
+                <span className="text-sm font-bold text-gray-900 dark:text-white">11</span>
+              </div>
+              <div className="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-3">
+                <div className="bg-primary h-3 rounded-full transition-all duration-500" style={{ width: '100%' }}></div>
+              </div>
+            </div>
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Premium</span>
+                <span className="text-sm font-bold text-gray-900 dark:text-white">0</span>
+              </div>
+              <div className="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-3">
+                <div className="bg-blue-500 h-3 rounded-full transition-all duration-500" style={{ width: '0%' }}></div>
+              </div>
+            </div>
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Business</span>
+                <span className="text-sm font-bold text-gray-900 dark:text-white">0</span>
+              </div>
+              <div className="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-3">
+                <div className="bg-purple-500 h-3 rounded-full transition-all duration-500" style={{ width: '0%' }}></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Quick Actions */}
+        <div className="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-xl p-6">
+          <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-6">Ações Rápidas</h3>
+          <div className="space-y-3">
+            <button 
+              onClick={() => onNavigate?.('users')}
+              className="w-full flex items-center justify-between p-4 rounded-xl border border-border-light dark:border-border-dark hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center">
+                  <Users className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                </div>
+                <div className="text-left">
+                  <p className="font-semibold text-gray-900 dark:text-white">Gerenciar Usuários</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Visualizar e editar usuários do sistema</p>
+                </div>
+              </div>
+              <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" />
+            </button>
+
+            <button 
+              onClick={() => onNavigate?.('config')}
+              className="w-full flex items-center justify-between p-4 rounded-xl border border-border-light dark:border-border-dark hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center">
+                  <Settings className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                </div>
+                <div className="text-left">
+                  <p className="font-semibold text-gray-900 dark:text-white">Configurar Planos</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Editar preços e recursos dos planos</p>
+                </div>
+              </div>
+              <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" />
+            </button>
+
+            <button 
+              onClick={() => onNavigate?.('analytics')}
+              className="w-full flex items-center justify-between p-4 rounded-xl border border-border-light dark:border-border-dark hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center">
+                  <BarChart3 className="w-5 h-5 text-primary dark:text-secondary" />
+                </div>
+                <div className="text-left">
+                  <p className="font-semibold text-gray-900 dark:text-white">Ver Analytics</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Relatórios e gráficos detalhados</p>
+                </div>
+              </div>
+              <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" />
+            </button>
+          </div>
         </div>
       </div>
     </div>

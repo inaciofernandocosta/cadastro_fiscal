@@ -36,9 +36,7 @@ const navGroups = [
   {
     label: 'Administração',
     items: [
-      { id: AppView.ADMIN_DASHBOARD, label: 'Visão Geral', icon: 'dashboard' },
-      { id: AppView.ADMIN_SUPPLIERS, label: 'Fornecedores', icon: 'manage_accounts' },
-      { id: AppView.ADMIN_SUPPORT,   label: 'Sistema de Suporte', icon: 'support' },
+      { id: AppView.ADMIN, label: 'Administrativo', icon: 'admin_panel_settings' },
     ],
   },
 ];

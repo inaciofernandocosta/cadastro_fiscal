@@ -9,8 +9,7 @@ export enum AppView {
   CHATS = 'CHATS',
   DOCUMENTATION = 'DOCUMENTATION',
   FEEDBACK = 'FEEDBACK',
-  ADMIN_DASHBOARD = 'ADMIN_DASHBOARD',
-  ADMIN_SUPPORT = 'ADMIN_SUPPORT'
+  ADMIN = 'ADMIN'
 }
 
 export interface ChatMessage {

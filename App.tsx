@@ -10,8 +10,7 @@ import MyProducts from './components/MyProducts';
 import Suppliers from './components/Suppliers';
 import ItemTracking from './components/ItemTracking';
 import Feedback from './components/Feedback';
-import AdminDashboard from './components/AdminDashboard';
-import AdminSupport from './components/AdminSupport';
+import AdminPanel from './components/AdminPanel';
 import { AppView } from './types';
 
 const VIEW_STORAGE_KEY = 'hubprodutos_current_view';
@@ -76,10 +75,6 @@ const App: React.FC = () => {
         return <Documentation />;
       case AppView.ADMIN_SUPPLIERS:
         return <AdminSuppliers />;
-      case AppView.ADMIN_DASHBOARD:
-        return <AdminDashboard />;
-      case AppView.ADMIN_SUPPORT:
-        return <AdminSupport />;
       case AppView.FEEDBACK:
         return <Feedback />;
       default:
@@ -90,6 +85,14 @@ const App: React.FC = () => {
         );
     }
   };
+
+  if (currentView === AppView.ADMIN) {
+    return (
+      <div className={`h-screen overflow-hidden ${isDarkMode ? 'dark' : ''}`}>
+        <AdminPanel onBack={() => handleViewChange(AppView.NEW_PRODUCT)} />
+      </div>
+    );
+  }
 
   return (
     <div className={`flex h-screen overflow-hidden ${isDarkMode ? 'dark' : ''}`}>
