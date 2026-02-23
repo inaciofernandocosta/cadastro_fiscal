@@ -30,8 +30,8 @@ const Documentation: React.FC = () => {
               <li>• Gestão de produtos cadastrados</li>
             </ul>
           </div>
-          <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
-            <h3 className="font-bold text-green-900 dark:text-green-300 mb-2">Para Compradores</h3>
+          <div className="bg-primary/10 dark:bg-primary/20 p-4 rounded-lg">
+            <h3 className="font-bold text-primary dark:text-secondary mb-2">Para Compradores</h3>
             <ul className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
               <li>• Aprovação de produtos</li>
               <li>• Gestão de fornecedores</li>
@@ -165,10 +165,10 @@ const Documentation: React.FC = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* SIM - Produto Existe */}
-              <div className="bg-green-50 dark:bg-green-900/20 border border-green-300 dark:border-green-700 rounded-lg p-4">
+              <div className="bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/30 rounded-lg p-4">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="material-icons-round text-green-600 dark:text-green-400">check_circle</span>
-                  <h4 className="font-bold text-green-900 dark:text-green-300">SIM - Produto Existe</h4>
+                  <span className="material-icons-round text-primary dark:text-secondary">check_circle</span>
+                  <h4 className="font-bold text-primary dark:text-secondary">SIM - Produto Existe</h4>
                 </div>
                 <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                   <li className="flex items-start gap-2">
@@ -224,18 +224,18 @@ const Documentation: React.FC = () => {
 
           {/* Etapa 3 */}
           <div className="flex items-start gap-4">
-            <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
+            <div className="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-lg">
               3
             </div>
-            <div className="flex-1 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
-              <h3 className="font-bold text-green-900 dark:text-green-300 mb-2 flex items-center gap-2">
+            <div className="flex-1 bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/30 rounded-lg p-4">
+              <h3 className="font-bold text-primary dark:text-secondary mb-2 flex items-center gap-2">
                 <span className="material-icons-round text-lg">save</span>
                 Salvar Cadastro
               </h3>
               <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">
                 Fornecedor revisa todos os dados e clica em <strong>"Salvar Cadastro"</strong>.
               </p>
-              <div className="flex items-center gap-2 text-xs text-green-700 dark:text-green-400">
+              <div className="flex items-center gap-2 text-xs text-primary dark:text-secondary">
                 <span className="material-icons-round text-sm">check</span>
                 <span className="font-semibold">Dados salvos no sistema</span>
               </div>
@@ -316,7 +316,7 @@ const Documentation: React.FC = () => {
           </div>
 
           {/* Etapa 3 Detalhada */}
-          <div className="border-l-4 border-green-600 pl-4">
+          <div className="border-l-4 border-primary pl-4">
             <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-2">3. Revisão e Salvamento</h3>
             <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
               <p><strong>Ação:</strong> Fornecedor revisa todos os campos preenchidos</p>
@@ -376,10 +376,10 @@ const Documentation: React.FC = () => {
           </div>
 
           {/* GS1 */}
-          <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
+          <div className="bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/30 rounded-lg p-4">
             <div className="flex items-center gap-2 mb-3">
-              <span className="material-icons-round text-green-600 dark:text-green-400 text-2xl">verified</span>
-              <h3 className="font-bold text-green-900 dark:text-green-300">GS1 Verified</h3>
+              <span className="material-icons-round text-primary dark:text-secondary text-2xl">verified</span>
+              <h3 className="font-bold text-primary dark:text-secondary">GS1 Verified</h3>
             </div>
             <ul className="space-y-1 text-xs text-gray-700 dark:text-gray-300">
               <li>• Dados do Produto por EAN</li>

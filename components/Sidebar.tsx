@@ -33,6 +33,14 @@ const navGroups = [
       { id: AppView.DOCUMENTATION, label: 'Documentação',   icon: 'description' },
     ],
   },
+  {
+    label: 'Administração',
+    items: [
+      { id: AppView.ADMIN_DASHBOARD, label: 'Visão Geral', icon: 'dashboard' },
+      { id: AppView.ADMIN_SUPPLIERS, label: 'Fornecedores', icon: 'manage_accounts' },
+      { id: AppView.ADMIN_SUPPORT,   label: 'Sistema de Suporte', icon: 'support' },
+    ],
+  },
 ];
 
 const Sidebar: React.FC<SidebarProps> = ({
@@ -141,7 +149,7 @@ const Sidebar: React.FC<SidebarProps> = ({
               className="w-8 h-8 rounded-lg object-cover ring-1 ring-slate-200 dark:ring-slate-700"
             />
             <span
-              className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 rounded-full ring-2 ring-white dark:ring-slate-900"
+              className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-primary-light rounded-full ring-2 ring-white dark:ring-slate-900"
               aria-label="Online"
             />
           </div>

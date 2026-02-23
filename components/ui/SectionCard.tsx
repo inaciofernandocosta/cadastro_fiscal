@@ -65,9 +65,9 @@ const colorMap: Record<SectionColor, {
     dot: 'bg-section-mg',
   },
   sp: {
-    header: 'bg-green-50 dark:bg-green-900/20',
-    title: 'text-section-sp dark:text-green-400',
-    border: 'border-green-200 dark:border-green-800/50',
+    header: 'bg-primary/10 dark:bg-primary/20',
+    title: 'text-section-sp dark:text-secondary',
+    border: 'border-primary/20 dark:border-primary/30',
     dot: 'bg-section-sp',
   },
   internal: {

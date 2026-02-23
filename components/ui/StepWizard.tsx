@@ -62,7 +62,7 @@ const StepWizard: React.FC<StepWizardProps> = ({ steps, currentStep, completedSt
                     relative w-10 h-10 rounded-full flex items-center justify-center
                     border-2 transition-all duration-300 flex-shrink-0
                     ${isCompleted
-                      ? 'bg-emerald-500 border-emerald-500 shadow-md shadow-emerald-200 dark:shadow-emerald-900/40'
+                      ? 'bg-primary border-primary shadow-md shadow-primary/30 dark:shadow-primary/20'
                       : isCurrent
                         ? 'bg-primary border-primary shadow-md shadow-primary/30 dark:shadow-primary/20'
                         : 'bg-gray-100 dark:bg-gray-700 border-gray-200 dark:border-gray-600'
@@ -97,7 +97,7 @@ const StepWizard: React.FC<StepWizardProps> = ({ steps, currentStep, completedSt
                   <p className={`
                     text-[10px] font-semibold leading-tight uppercase tracking-wide truncate w-full
                     ${isCompleted
-                      ? 'text-emerald-600 dark:text-emerald-400'
+                      ? 'text-primary dark:text-secondary'
                       : isCurrent
                         ? 'text-primary dark:text-secondary'
                         : 'text-gray-400 dark:text-gray-500'
@@ -120,7 +120,7 @@ const StepWizard: React.FC<StepWizardProps> = ({ steps, currentStep, completedSt
                     className={`
                       h-0.5 w-full rounded-full transition-all duration-500
                       ${completedSteps.includes(index)
-                        ? 'bg-emerald-400'
+                        ? 'bg-primary-light'
                         : 'bg-gray-200 dark:bg-gray-700'
                       }
                     `}

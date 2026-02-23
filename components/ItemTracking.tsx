@@ -106,7 +106,7 @@ const ItemTracking: React.FC = () => {
       case 'in_purchasing':
         return { label: 'Em Análise - Compras', color: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400', icon: 'shopping_cart' };
       case 'fiscal_approved':
-        return { label: 'Fiscal Aprovado', color: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400', icon: 'check_circle' };
+        return { label: 'Fiscal Aprovado', color: 'bg-primary/10 text-primary dark:bg-primary/20 dark:text-secondary', icon: 'check_circle' };
       case 'rejected':
         return { label: 'Rejeitado', color: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400', icon: 'cancel' };
       default:
@@ -154,13 +154,13 @@ const ItemTracking: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl p-4">
+        <div className="bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/30 rounded-xl p-4">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs font-bold text-green-600 dark:text-green-400 uppercase">Fiscal Aprovado</p>
-              <p className="text-2xl font-bold text-green-900 dark:text-green-300 mt-1">{approvedCount}</p>
+              <p className="text-xs font-bold text-primary dark:text-secondary uppercase">Fiscal Aprovado</p>
+              <p className="text-2xl font-bold text-primary dark:text-secondary mt-1">{approvedCount}</p>
             </div>
-            <span className="material-icons-round text-green-600 dark:text-green-400 text-3xl">check_circle</span>
+            <span className="material-icons-round text-primary dark:text-secondary text-3xl">check_circle</span>
           </div>
         </div>
 
@@ -276,7 +276,7 @@ const ItemTracking: React.FC = () => {
                       <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                         <div 
                           className={`h-2 rounded-full transition-all ${
-                            item.currentStatus === 'rejected' ? 'bg-red-500' : 'bg-green-500'
+                            item.currentStatus === 'rejected' ? 'bg-red-500' : 'bg-primary'
                           }`}
                           style={{ width: `${progress}%` }}
                         ></div>
@@ -287,7 +287,7 @@ const ItemTracking: React.FC = () => {
                     <div className="flex items-center gap-2 mb-4">
                       <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg ${
                         ['pending_approval', 'in_purchasing', 'fiscal_approved'].includes(item.currentStatus)
-                          ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400'
+                          ? 'bg-primary/10 dark:bg-primary/20 text-primary dark:text-secondary'
                           : 'bg-gray-100 dark:bg-gray-700 text-gray-400'
                       }`}>
                         <span className="material-icons-round text-sm">send</span>
@@ -305,7 +305,7 @@ const ItemTracking: React.FC = () => {
                       <div className="flex-1 h-0.5 bg-gray-200 dark:bg-gray-700"></div>
                       <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg ${
                         item.currentStatus === 'fiscal_approved'
-                          ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400'
+                          ? 'bg-primary/10 dark:bg-primary/20 text-primary dark:text-secondary'
                           : 'bg-gray-100 dark:bg-gray-700 text-gray-400'
                       }`}>
                         <span className="material-icons-round text-sm">check_circle</span>

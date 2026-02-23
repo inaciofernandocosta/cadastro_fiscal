@@ -52,8 +52,8 @@ const ChatInterface: React.FC = () => {
       <header className="h-16 bg-white dark:bg-card-dark border-b border-slate-200 dark:border-slate-700 flex items-center justify-between px-8 shrink-0">
         <div className="flex items-center gap-4">
           <h2 className="text-lg font-semibold text-slate-800 dark:text-white">Fiscal Mentor</h2>
-          <span className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-medium flex items-center gap-1">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Online
+          <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium flex items-center gap-1">
+            <span className="w-2 h-2 rounded-full bg-primary-light animate-pulse"></span> Online
           </span>
         </div>
       </header>

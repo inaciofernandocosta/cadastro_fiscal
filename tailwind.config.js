@@ -12,14 +12,14 @@ export default {
     extend: {
       colors: {
         // Brand
-        primary: "#164E63",
-        "primary-dark": "#0E3A4A",
-        "primary-light": "#1D6A84",
-        secondary: "#94C4D8",
-        "secondary-dark": "#6AAEC9",
+        primary: "#00A79D",
+        "primary-dark": "#00867E",
+        "primary-light": "#2BC2BA",
+        secondary: "#8BE2DD",
+        "secondary-dark": "#64D6CF",
         danger: "#DC2626",
         "danger-dark": "#B91C1C",
-        chatPrimary: "#2C8CBA",
+        chatPrimary: "#00A79D",
         // Backgrounds
         "background-light": "#F3F6F9",
         "background-dark": "#0F172A",
@@ -39,12 +39,12 @@ export default {
         "label-dark": "#94A3B8",
         // Sections semânticas — cores por domínio
         "section-supplier": "#DC2626",
-        "section-product": "#164E63",
+        "section-product": "#007F7A",
         "section-dimensions": "#0369A1",
         "section-logistics": "#C2410C",
-        "section-fiscal": "#0369A1",
+        "section-fiscal": "#007F7A",
         "section-mg": "#1D4ED8",
-        "section-sp": "#15803D",
+        "section-sp": "#007F7A",
         "section-internal": "#7C3AED",
         "section-image": "#4B5563",
         // GS1
@@ -71,8 +71,8 @@ export default {
           "100%": { transform: "translateY(0)", opacity: "1" },
         },
         "pulse-success": {
-          "0%, 100%": { boxShadow: "0 0 0 0 rgba(52, 211, 153, 0.4)" },
-          "50%": { boxShadow: "0 0 0 8px rgba(52, 211, 153, 0)" },
+          "0%, 100%": { boxShadow: "0 0 0 0 rgba(0, 167, 157, 0.4)" },
+          "50%": { boxShadow: "0 0 0 8px rgba(0, 167, 157, 0)" },
         },
         "progress-fill": {
           "0%": { width: "0%" },

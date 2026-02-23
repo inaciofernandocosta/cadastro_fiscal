@@ -219,10 +219,10 @@ const ProductFormComplete: React.FC = () => {
         >
           <div className="max-w-3xl mx-auto text-center space-y-3 py-2">
             {vendorData && (
-              <div className="flex items-center justify-center gap-2 text-sm text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800/40 rounded-xl px-4 py-2.5 animate-fade-in-up">
-                <span className="material-icons-round text-emerald-500 text-base" aria-hidden="true">check_circle</span>
+              <div className="flex items-center justify-center gap-2 text-sm text-primary dark:text-secondary bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/30 rounded-xl px-4 py-2.5 animate-fade-in-up">
+                <span className="material-icons-round text-primary-light text-base" aria-hidden="true">check_circle</span>
                 <span className="font-semibold">{vendorData.name}</span>
-                <span className="text-emerald-600/70 dark:text-emerald-500/70">— Fornecedor vinculado</span>
+                <span className="text-primary/80 dark:text-secondary/80">— Fornecedor vinculado</span>
               </div>
             )}
             <div className="relative group">
@@ -266,11 +266,11 @@ const ProductFormComplete: React.FC = () => {
         <div className="space-y-4 animate-slide-in-right">
 
           {/* Success banner */}
-          <div className="flex items-center gap-3 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800/40 rounded-2xl px-5 py-4 animate-pulse-success">
-            <span className="material-icons-round text-emerald-500 text-2xl flex-shrink-0" aria-hidden="true">task_alt</span>
+          <div className="flex items-center gap-3 bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/30 rounded-2xl px-5 py-4 animate-pulse-success">
+            <span className="material-icons-round text-primary-light text-2xl flex-shrink-0" aria-hidden="true">task_alt</span>
             <div>
-              <p className="text-sm font-bold text-emerald-700 dark:text-emerald-400">Produto encontrado via GS1</p>
-              <p className="text-xs text-emerald-600/80 dark:text-emerald-500/80 mt-0.5 line-clamp-1">{productData.name}</p>
+              <p className="text-sm font-bold text-primary dark:text-secondary">Produto encontrado via GS1</p>
+              <p className="text-xs text-primary/80 dark:text-secondary/80 mt-0.5 line-clamp-1">{productData.name}</p>
             </div>
           </div>
 

@@ -128,13 +128,13 @@ const Suppliers: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl p-4">
+        <div className="bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/30 rounded-xl p-4">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs font-bold text-green-600 dark:text-green-400 uppercase">Ativos</p>
-              <p className="text-2xl font-bold text-green-900 dark:text-green-300 mt-1">{activeCount}</p>
+              <p className="text-xs font-bold text-primary dark:text-secondary uppercase">Ativos</p>
+              <p className="text-2xl font-bold text-primary dark:text-secondary mt-1">{activeCount}</p>
             </div>
-            <span className="material-icons-round text-green-600 dark:text-green-400 text-3xl">check_circle</span>
+            <span className="material-icons-round text-primary dark:text-secondary text-3xl">check_circle</span>
           </div>
         </div>
 
@@ -248,7 +248,7 @@ const Suppliers: React.FC = () => {
                   </div>
                   <span className={`px-3 py-1 rounded-full text-xs font-bold ${
                     supplier.status === 'active'
-                      ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400'
+                      ? 'bg-primary/10 text-primary dark:bg-primary/20 dark:text-secondary'
                       : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-400'
                   }`}>
                     {supplier.status === 'active' ? 'Ativo' : 'Inativo'}
@@ -282,7 +282,7 @@ const Suppliers: React.FC = () => {
                     </div>
                     <div>
                       <p className="text-xs text-gray-500 dark:text-gray-400">Produtos Ativos</p>
-                      <p className="text-lg font-bold text-green-600 dark:text-green-400">{supplier.activeProducts}</p>
+                      <p className="text-lg font-bold text-primary dark:text-secondary">{supplier.activeProducts}</p>
                     </div>
                   </div>
 
@@ -340,13 +340,13 @@ const Suppliers: React.FC = () => {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm">
                         <p className="font-bold text-gray-900 dark:text-white">{supplier.totalProducts} total</p>
-                        <p className="text-xs text-green-600 dark:text-green-400">{supplier.activeProducts} ativos</p>
+                        <p className="text-xs text-primary dark:text-secondary">{supplier.activeProducts} ativos</p>
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className={`px-3 py-1 rounded-full text-xs font-bold ${
                         supplier.status === 'active'
-                          ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400'
+                          ? 'bg-primary/10 text-primary dark:bg-primary/20 dark:text-secondary'
                           : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-400'
                       }`}>
                         {supplier.status === 'active' ? 'Ativo' : 'Inativo'}

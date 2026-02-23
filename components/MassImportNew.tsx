@@ -154,7 +154,7 @@ const MassImportNew: React.FC = () => {
     switch (status) {
       case 'uploaded': return 'bg-gray-100 text-gray-800';
       case 'processing': return 'bg-blue-100 text-blue-800';
-      case 'ready': return 'bg-green-100 text-green-800';
+      case 'ready': return 'bg-primary/10 text-primary';
       case 'sent': return 'bg-purple-100 text-purple-800';
       default: return 'bg-gray-100 text-gray-800';
     }
@@ -250,7 +250,7 @@ const MassImportNew: React.FC = () => {
                       </span>
                       {batch.status !== 'processing' && (
                         <>
-                          <span className="flex items-center gap-1 text-green-600">
+                          <span className="flex items-center gap-1 text-primary">
                             <span className="material-icons-round text-sm">check_circle</span>
                             {batch.validatedItems} validados
                           </span>
@@ -359,7 +359,7 @@ const MassImportNew: React.FC = () => {
                           </div>
                           <div className="flex items-center gap-2">
                             {product.status === 'validated' && (
-                              <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-bold flex items-center gap-1">
+                              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold flex items-center gap-1">
                                 <span className="material-icons-round text-sm">check_circle</span>
                                 Validado
                               </span>
@@ -453,7 +453,7 @@ const MassImportNew: React.FC = () => {
                   </div>
                   <div className={`px-4 py-3 rounded-xl ${
                     selectedProduct.status === 'validated'
-                      ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400'
+                      ? 'bg-primary/10 dark:bg-primary/20 text-primary dark:text-secondary'
                       : 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-400'
                   }`}>
                     <div className="flex items-center gap-2">
@@ -541,7 +541,7 @@ const MassImportNew: React.FC = () => {
             </div>
 
             <div className="flex-1 overflow-y-auto p-6">
-              <pre className="bg-gray-900 text-green-400 p-4 rounded-xl overflow-x-auto text-xs font-mono">
+              <pre className="bg-gray-900 text-primary-light p-4 rounded-xl overflow-x-auto text-xs font-mono">
 {JSON.stringify({
   id: selectedProduct.id,
   ean: selectedProduct.ean,

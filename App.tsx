@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Sidebar from './components/Sidebar';
 import ProductFormComplete from './components/ProductFormComplete';
 import ChatInterface from './components/ChatInterface';
@@ -9,12 +9,44 @@ import AdminSuppliers from './components/AdminSuppliers';
 import MyProducts from './components/MyProducts';
 import Suppliers from './components/Suppliers';
 import ItemTracking from './components/ItemTracking';
+import Feedback from './components/Feedback';
+import AdminDashboard from './components/AdminDashboard';
+import AdminSupport from './components/AdminSupport';
 import { AppView } from './types';
 
+const VIEW_STORAGE_KEY = 'hubprodutos_current_view';
+
+const isAppView = (value: string | null): value is AppView => {
+  if (!value) return false;
+  return (Object.values(AppView) as string[]).includes(value);
+};
+
 const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<AppView>(AppView.NEW_PRODUCT);
+  const [currentView, setCurrentView] = useState<AppView>(() => {
+    if (typeof window === 'undefined') return AppView.NEW_PRODUCT;
+
+    const hashView = window.location.hash.replace('#', '');
+    if (isAppView(hashView)) {
+      return hashView;
+    }
+
+    const storedView = window.localStorage.getItem(VIEW_STORAGE_KEY);
+    if (isAppView(storedView)) {
+      return storedView;
+    }
+
+    return AppView.NEW_PRODUCT;
+  });
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    window.localStorage.setItem(VIEW_STORAGE_KEY, currentView);
+    const nextUrl = `${window.location.pathname}${window.location.search}#${currentView}`;
+    window.history.replaceState(null, '', nextUrl);
+  }, [currentView]);
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -44,6 +76,12 @@ const App: React.FC = () => {
         return <Documentation />;
       case AppView.ADMIN_SUPPLIERS:
         return <AdminSuppliers />;
+      case AppView.ADMIN_DASHBOARD:
+        return <AdminDashboard />;
+      case AppView.ADMIN_SUPPORT:
+        return <AdminSupport />;
+      case AppView.FEEDBACK:
+        return <Feedback />;
       default:
         return (
           <div className="flex items-center justify-center h-full text-slate-400 italic">

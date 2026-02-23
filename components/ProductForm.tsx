@@ -270,7 +270,7 @@ const ProductForm: React.FC = () => {
                         defaultValue={productData.gtin} 
                         readOnly
                       />
-                      <span className="absolute right-3 top-1/2 -translate-y-1/2 text-green-500 material-icons-round text-lg">check_circle</span>
+                      <span className="absolute right-3 top-1/2 -translate-y-1/2 text-primary-light material-icons-round text-lg">check_circle</span>
                     </div>
                   </div>
                   <div>
@@ -327,7 +327,7 @@ const ProductForm: React.FC = () => {
               <div className="p-4">
                 <div className="relative group bg-white dark:bg-gray-800 rounded-xl border border-dashed border-gray-300 dark:border-gray-600 aspect-square flex items-center justify-center overflow-hidden">
                   <div className="absolute top-3 left-3 z-10 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md px-2.5 py-1.5 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <span className="w-2 h-2 rounded-full bg-primary-light animate-pulse"></span>
                     <span className="text-[10px] font-bold text-gs1-blue dark:text-blue-300 uppercase tracking-wide">GS1 Verified</span>
                   </div>
                   <img 

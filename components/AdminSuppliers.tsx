@@ -84,7 +84,7 @@ const AdminSuppliers: React.FC = () => {
   const getUsageColor = (percentage: number) => {
     if (percentage >= 90) return 'bg-red-500';
     if (percentage >= 70) return 'bg-yellow-500';
-    return 'bg-green-500';
+    return 'bg-primary';
   };
 
   return (
@@ -107,15 +107,15 @@ const AdminSuppliers: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl p-4">
+        <div className="bg-primary/10 dark:bg-primary/20 border border-primary/20 dark:border-primary/30 rounded-xl p-4">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs font-bold text-green-600 dark:text-green-400 uppercase">Ativos</p>
-              <p className="text-2xl font-bold text-green-900 dark:text-green-300 mt-1">
+              <p className="text-xs font-bold text-primary dark:text-secondary uppercase">Ativos</p>
+              <p className="text-2xl font-bold text-primary dark:text-secondary mt-1">
                 {suppliers.filter(s => s.status === 'active').length}
               </p>
             </div>
-            <span className="material-icons-round text-green-600 dark:text-green-400 text-3xl">check_circle</span>
+            <span className="material-icons-round text-primary dark:text-secondary text-3xl">check_circle</span>
           </div>
         </div>
 
@@ -190,7 +190,7 @@ const AdminSuppliers: React.FC = () => {
                           <span className="text-xs font-medium text-gray-700 dark:text-gray-300">
                             {supplier.itemsUsed} / {supplier.itemLimit}
                           </span>
-                          <span className={`text-xs font-bold ${usagePercentage >= 90 ? 'text-red-600' : usagePercentage >= 70 ? 'text-yellow-600' : 'text-green-600'}`}>
+                          <span className={`text-xs font-bold ${usagePercentage >= 90 ? 'text-red-600' : usagePercentage >= 70 ? 'text-yellow-600' : 'text-primary'}`}>
                             ({usagePercentage}%)
                           </span>
                         </div>
@@ -207,7 +207,7 @@ const AdminSuppliers: React.FC = () => {
                         onClick={() => handleToggleStatus(supplier.id)}
                         className={`px-3 py-1 rounded-full text-xs font-bold ${
                           supplier.status === 'active'
-                            ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400'
+                            ? 'bg-primary/10 text-primary dark:bg-primary/20 dark:text-secondary'
                             : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-400'
                         }`}
                       >

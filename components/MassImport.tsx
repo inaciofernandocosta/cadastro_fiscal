@@ -40,8 +40,8 @@ const MassImport: React.FC = () => {
           <h2 className="text-lg font-bold text-gray-700 dark:text-gray-200 flex items-center gap-2">
             <span className="material-symbols-outlined text-secondary">toc</span> HISTÓRICO DE PROCESSAMENTO
           </h2>
-          <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold flex items-center">
-            <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span> Online
+          <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-semibold flex items-center">
+            <span className="w-2 h-2 bg-primary-light rounded-full mr-2"></span> Online
           </span>
         </div>
         <div className="overflow-x-auto">
@@ -66,13 +66,13 @@ const MassImport: React.FC = () => {
                   <td className="px-6 py-4 text-gray-500">{job.date}</td>
                   <td className="px-6 py-4 min-w-[200px]">
                     <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                      <div className={`h-2 rounded-full transition-all duration-500 ${job.status === 'Synced' ? 'bg-green-500' : 'bg-blue-500'}`} style={{ width: `${job.progress}%` }}></div>
+                      <div className={`h-2 rounded-full transition-all duration-500 ${job.status === 'Synced' ? 'bg-primary' : 'bg-blue-500'}`} style={{ width: `${job.progress}%` }}></div>
                     </div>
                     {job.statusText && <span className={`text-[10px] mt-1 block ${job.status === 'Error' ? 'text-red-500' : 'text-blue-500'}`}>{job.statusText}</span>}
                   </td>
                   <td className="px-6 py-4 text-right">
                     <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                      job.status === 'Synced' ? 'bg-green-100 text-green-800' : 
+                      job.status === 'Synced' ? 'bg-primary/10 text-primary' : 
                       job.status === 'Processing' ? 'bg-blue-100 text-blue-800' : 
                       job.status === 'Queued' ? 'bg-yellow-100 text-yellow-800' : 'bg-red-100 text-red-800'
                     }`}>
